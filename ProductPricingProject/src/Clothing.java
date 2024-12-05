@@ -1,21 +1,47 @@
-public class Clothing extends Product{
+public class Clothing extends product {
     private String brand;
-    private double discountPercentage;
+    private double discountpercentage;
 
-    public Clothing(String productName,double price, String brand, double discountPercentage) {
+
+    public Clothing(String ProductName, double Price, String Brand, double discountpercentage) {
+        super(ProductName, Price);
+        this.brand = Brand;
+        this.discountpercentage = discountpercentage;
+    }
+
+    public double Getdiscountprice() {
+        double discountprice = super.GetPrice() - (super.GetPrice() * discountpercentage / 100);
+        super.SetPrice(discountprice);
+        return discountprice;
+    }
+
+    public void Setdiscountpercentage(double discountpercentage) {
+        this.discountpercentage = discountpercentage;
+    }
+
+    public void SetBrandName(String brand) {
         this.brand = brand;
-        this.discountPercentage = discountPercentage;
-        this.productName = productName;
-        setPrice(price);
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice() - super.getPrice() * discountPercentage / 100;
+    public String GetBrandName() {
+        return brand;
     }
+
+    public double Getdiscountpercentage() {
+        return discountpercentage;
+    }
+
 
     @Override
     public String toString() {
-        return (super.toString() + "\nBrand: " + brand + "\nDiscount: " + discountPercentage + "\nPrice After Discount: " + this.getPrice());
+        return( super.toString() + "Brand: " + brand + "  Discount Percentage: " + discountpercentage);
+    }
+    @Override
+    public double GetPrice()
+    {
+        return super.GetPrice();
     }
 }
+
+
+
